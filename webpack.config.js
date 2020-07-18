@@ -1,9 +1,8 @@
-const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
     mode: 'development', // or 'production'
-    //entry 부분이 웹팩이 파일을 읽어들이기 시작하는 부분
+    // entry 부분이 웹팩이 파일을 읽어들이기 시작하는 부분
     entry: {
         index: path.resolve(__dirname, 'client'), // 파일 결과물이 app.js
     },
@@ -23,27 +22,27 @@ module.exports = {
                     options: { //  { 사용할 로더 옵션 }
                         presets: [
                             [
-                                "@babel/preset-env", {
+                                '@babel/preset-env', {
                                     corejs: 3,
                                     targets: '> 1%',
-                                    useBuiltIns: "usage"
-                                }
+                                    useBuiltIns: 'usage',
+                                },
                             ],
                         ],
                         // 로더가 파일단위로 처리하는 반면 플러그인은 번들된 결과물을 처리한다.
-                        plugins: ["@babel/plugin-proposal-class-properties"],
-                    }
-                }
+                        plugins: ['@babel/plugin-proposal-class-properties'],
+                    },
+                },
             },
             {
-                test:/\.css$/,
-                use: ['style-loader', 'css-loader']
-            }
-        ]
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+            },
+        ],
     },
     devServer: {
-        contentBase: path.resolve(__dirname, "client/public"),
-        port: 4000
+        contentBase: path.resolve(__dirname, 'client/public'),
+        port: 4000,
     },
     optimization: {},
     resolve: {},
