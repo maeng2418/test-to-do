@@ -1,4 +1,5 @@
 import Component from '../Component';
+import './column.css';
 
 export default class Column extends Component {
     constructor(parent, props) {

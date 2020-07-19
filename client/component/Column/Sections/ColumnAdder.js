@@ -1,5 +1,4 @@
 import Component from '../../Component';
-import './columnAdder.css';
 
 export default class ColumnAdder extends Component {
     constructor(parent) {
