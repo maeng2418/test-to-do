@@ -12,6 +12,7 @@ export default class Column extends Component {
         this.$title = this.$.querySelector('.col-title');
         this.$removeBtn = this.$.querySelector('.col-delete-btn');
         this.$noteAddBtn = this.$.querySelector('.note-plus-btn');
+        this.$colBody = this.$.querySelector('.col-body');
         this.columnAdder = this.parent.$.querySelector('.add-column-btn');
 
         this.noteForm = new NoteForm(this);
@@ -23,7 +24,7 @@ export default class Column extends Component {
 
     mount(parentElement) {
         parentElement.insertBefore(this.$, this.columnAdder);
-        this.noteForm.mount(this.$);
+        this.noteForm.mount(this.$colBody);
     }
 
     setTitle(title) {
@@ -36,21 +37,20 @@ export default class Column extends Component {
 
     addNote(value) {
         const note = new Note(this, value);
-        note.mount(this.$);
+        note.mount(this.$colBody);
     }
 
     render() {
         return `
-        <div class="col-header">
-            <div class="note-counter">카운터</div>
-            <div class="col-title">제목</div>
-            <div class="col-btns">
-                <button class="note-plus-btn">+</button>
-                <button class="col-delete-btn">x</button>
+            <div class="col-header">
+                <div class="note-counter">카운터</div>
+                <div class="col-title">제목</div>
+                <div class="col-btns">
+                    <button class="note-plus-btn">+</button>
+                    <button class="col-delete-btn">x</button>
+                </div>
             </div>
-        </div>
-        <div class="col-body">
-            노트생성폼    
-        </div>`;
+            <div class="col-body"></div>
+        `;
     }
 }

@@ -1,6 +1,12 @@
 .col, .add-column-btn {
     width: 20%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid grey;
+    overflow-y: scroll;
+    padding: 1.5rem;
+    margin: 1rem;
 }
 
 .add-column-btn {
@@ -10,4 +16,24 @@
 
 .col-header {
     display: flex;
+}
+
+.col-body { 
+    display: flex;
+    flex-direction: column;
+}
+
+.col-title {
+    margin-right: auto;
+}
+
+.col-btns > button {
+    background-color: white;
+    border: none;
+    font-size: 1.2rem;
+    outline: none;
+}
+
+.note-counter {
+    margin: 0px .5rem;
 }

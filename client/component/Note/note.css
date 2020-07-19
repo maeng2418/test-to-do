@@ -1,0 +1,48 @@
+/* note form */
+.note-form-body, .note-form-footer {
+    display: flex;
+}
+
+.note-form-footer > button{
+    flex-grow: 2;
+    width: 50%;
+    font-size: 1rem;
+    padding: .5rem;
+    margin: .5rem;
+}
+
+.note-form-body > textarea {
+    width: 100%;
+    resize: vertical;
+    height: auto;
+    min-height: 3rem;
+    font-size: 1rem;
+    margin-top: 2rem;
+    margin: .5rem;
+    padding: 1rem;
+}
+
+/* note */
+.note {
+    border: 1px solid black;
+    margin: .5rem;
+    padding: 1.5rem;
+    -webkit-user-select: none;
+    background-color: white;
+    position: relative;
+}
+
+.note-header {
+    display: flex;
+}
+.note-footer {
+    margin: .2rem 0px;
+    font-size: 1rem;
+}
+.note-delete-btn {
+    border: none;
+    font-size: 1rem;
+    margin-left: auto;
+    outline: none;
+    background-color: white;
+}
