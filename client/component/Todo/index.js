@@ -1,6 +1,7 @@
 import Component from '../Component';
 import ColumnAdder from '../Column/Sections/ColumnAdder';
 import Column from '../Column';
+import MouseEvent from '../MouseEvent';
 import './todo.css';
 
 export default class Todo extends Component {
@@ -8,6 +9,7 @@ export default class Todo extends Component {
         super(parent, null, 'todo');
 
         this.addColumnBtn = new ColumnAdder(this);
+        this.mouseEvent = new MouseEvent(this.$);
         this.addColumnBtn.mount(this.$);
     }
 

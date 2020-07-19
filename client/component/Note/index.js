@@ -15,6 +15,10 @@ export default class Note extends Component {
             .setTitle(title)
             .setContent(content)
             .setWriter(writer);
+
+        this.$.addEventListener('mousedown', () => this.getRootComponent().mouseEvent.onDragStart(this.$));
+        this.$.addEventListener('mousemove', () => this.getRootComponent().mouseEvent.onDragOver(this.$));
+        this.$.addEventListener('mouseup', () => this.getRootComponent().mouseEvent.onDrop(this.$));
     }
 
     mount(parentElement) {

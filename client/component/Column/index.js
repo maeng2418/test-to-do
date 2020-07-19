@@ -20,6 +20,10 @@ export default class Column extends Component {
         this.setTitle(title);
         this.$removeBtn.addEventListener('click', this.removeCol.bind(this));
         this.$noteAddBtn.addEventListener('click', this.noteForm.open.bind(this.noteForm));
+
+        this.$.addEventListener('mousedown', () => this.parent.mouseEvent.onDragStart(this.$));
+        this.$.addEventListener('mousemove', () => this.parent.mouseEvent.onDragOver(this.$));
+        this.$.addEventListener('mouseup', () => this.parent.mouseEvent.onDrop(this.$));
     }
 
     mount(parentElement) {

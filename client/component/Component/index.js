@@ -25,6 +25,14 @@ export default class Component {
         return this;
     }
 
+    getRootComponent() {
+        let root = this;
+        while (root.parent !== null) {
+            root = root.parent;
+        }
+        return root;
+    }
+
     // 컴포넌트 생성함수
     render() {
         return '';
