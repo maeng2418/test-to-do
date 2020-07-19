@@ -1,8 +1,15 @@
 .todo {
+    position: relative;
     display: flex;
     height: calc(100vh - 3rem);
 }
 
 .hidden {
     display: none;
+}
+
+.copy {
+    /* position: absolute; */
+    opacity: 0.4;
+    /* z-index: 5; */
 }
