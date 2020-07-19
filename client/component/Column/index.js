@@ -37,7 +37,7 @@ export default class Column extends Component {
 
     addNote(value) {
         const note = new Note(this, value);
-        note.mount(this.$colBody);
+        note.mount(this);
     }
 
     render() {

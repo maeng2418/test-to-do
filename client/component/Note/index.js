@@ -17,6 +17,11 @@ export default class Note extends Component {
             .setWriter(writer);
     }
 
+    mount(parentElement) {
+        const noteForm = parentElement.noteForm.$;
+        noteForm.parentNode.insertBefore(this.$, noteForm.nextSibling);
+    }
+
     setTitle(value) {
         this.$noteTitle.innerText = value;
         return this;
