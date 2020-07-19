@@ -15,6 +15,16 @@ export default class Component {
         parentElement.append(this.$);
     }
 
+    open() {
+        this.$.classList.remove('hidden');
+        return this;
+    }
+
+    close() {
+        this.$.classList.add('hidden');
+        return this;
+    }
+
     // 컴포넌트 생성함수
     render() {
         return '';

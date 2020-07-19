@@ -1,5 +1,6 @@
 import Component from '../Component';
 import Note from '../Note';
+import NoteForm from '../Note/Sections/NoteForm';
 import './column.css';
 
 export default class Column extends Component {
@@ -10,16 +11,19 @@ export default class Column extends Component {
 
         this.$title = this.$.querySelector('.col-title');
         this.$removeBtn = this.$.querySelector('.col-delete-btn');
-        this.$noteAdder = this.$.querySelector('.note-plus-btn');
+        this.$noteAddBtn = this.$.querySelector('.note-plus-btn');
         this.columnAdder = this.parent.$.querySelector('.add-column-btn');
+
+        this.noteForm = new NoteForm(this);
 
         this.setTitle(title);
         this.$removeBtn.addEventListener('click', this.removeCol.bind(this));
-        this.$noteAdder.addEventListener('click', this.addNote.bind(this));
+        this.$noteAddBtn.addEventListener('click', this.noteForm.open.bind(this.noteForm));
     }
 
     mount(parentElement) {
         parentElement.insertBefore(this.$, this.columnAdder);
+        this.noteForm.mount(this.$);
     }
 
     setTitle(title) {
@@ -30,8 +34,8 @@ export default class Column extends Component {
         this.parent.$.removeChild(this.$);
     }
 
-    addNote() {
-        const note = new Note(this, { title: 'note', content: 'Hello', writer: 'maeng2418' });
+    addNote(value) {
+        const note = new Note(this, value);
         note.mount(this.$);
     }
 
