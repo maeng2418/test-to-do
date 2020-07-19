@@ -1,4 +1,5 @@
 import Component from '../Component';
+import Note from '../Note';
 import './column.css';
 
 export default class Column extends Component {
@@ -8,9 +9,13 @@ export default class Column extends Component {
         const { title } = this.props;
 
         this.$title = this.$.querySelector('.col-title');
+        this.$removeBtn = this.$.querySelector('.col-delete-btn');
+        this.$noteAdder = this.$.querySelector('.note-plus-btn');
         this.columnAdder = this.parent.$.querySelector('.add-column-btn');
 
         this.setTitle(title);
+        this.$removeBtn.addEventListener('click', this.removeCol.bind(this));
+        this.$noteAdder.addEventListener('click', this.addNote.bind(this));
     }
 
     mount(parentElement) {
@@ -19,6 +24,15 @@ export default class Column extends Component {
 
     setTitle(title) {
         this.$title.innerHTML = title;
+    }
+
+    removeCol() {
+        this.parent.$.removeChild(this.$);
+    }
+
+    addNote() {
+        const note = new Note(this, { title: 'note', content: 'Hello', writer: 'maeng2418' });
+        note.mount(this.$);
     }
 
     render() {
