@@ -9,7 +9,7 @@
 }
 
 .copy {
-    /* position: absolute; */
+    position: absolute;
     opacity: 0.4;
-    /* z-index: 5; */
+    transform: translate(-50%, -50%);
 }

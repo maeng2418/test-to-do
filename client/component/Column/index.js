@@ -21,8 +21,7 @@ export default class Column extends Component {
         this.$removeBtn.addEventListener('click', this.removeCol.bind(this));
         this.$noteAddBtn.addEventListener('click', this.noteForm.open.bind(this.noteForm));
 
-        this.$.addEventListener('mousedown', () => this.parent.mouseEvent.onDragStart(this.$));
-        this.$.addEventListener('mouseup', () => this.parent.mouseEvent.onDrop(this.$));
+        this.$.addEventListener('mousedown', (event) => this.parent.mouseEvent.onDragStart(event, this.$));
     }
 
     mount(parentElement) {

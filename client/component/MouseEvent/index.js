@@ -1,26 +1,30 @@
 export default class MouseEvent {
     constructor(container) {
         this.$ = container;
+        this.copy = null;
     }
 
-    onDragStart(element) {
+    onDragStart(event, element) {
         element.classList.add('selected');
-        const copy = element.cloneNode(true);
-        copy.classList.add('copy');
-        this.$.appendChild(copy);
+        this.copy = element.cloneNode(true);
+        this.copy.classList.add('copy');
+        this.copy.addEventListener('mouseover', this.onDragOver.bind(this));
+        this.copy.addEventListener('mouseup', this.onDrop.bind(this));
+        const { offsetX, offsetY } = event;
+        this.copy.setAttribute('style', `left: ${offsetX}; top: ${offsetY};`);
+        this.$.appendChild(this.copy);
         return this;
     }
 
-    // onDragOver(element) {
-    //     // element.classList.add('dragging');
-    //     return this;
-    // }
+    onDragOver() {
+        this.copy.classList.add('dragging');
+        return this;
+    }
 
-    onDrop(element) {
+    onDrop() {
         // element.classList.replace('dragging', 'drop');
-        element.classList.remove('selected');
-        const copy = this.$.querySelector('.copy');
-        this.$.removeChild(copy);
+        this.$.removeChild(this.copy);
+        this.copy = null;
         return this;
     }
 }
