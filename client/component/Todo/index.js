@@ -1,6 +1,7 @@
 import Component from '../Component';
 import ColumnAdder from '../Column/Sections/ColumnAdder';
 import Column from '../Column';
+import './todo.css';
 
 export default class Todo extends Component {
     constructor(parent) {

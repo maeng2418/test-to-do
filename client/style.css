@@ -3,3 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+html {
+  height: 100%;
+}
+
+body {
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  min-height: 100;
+}
