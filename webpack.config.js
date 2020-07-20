@@ -10,6 +10,7 @@ module.exports = {
         path: path.resolve(__dirname, 'client/public'),
         filename: '[name].js', // entry에서 설정한 index.js 로 결과물이 생성
     },
+    devtool: 'cheap-eval-source-map',
     // 웹팩은 오직 JavaScript와 Json만 이해할 수 있다.
     module: {
         rules: [

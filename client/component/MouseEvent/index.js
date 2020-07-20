@@ -9,7 +9,8 @@ export default class MouseEvent {
         this.copy = element.cloneNode(true);
         this.copy.classList.add('copy');
         this.copy.addEventListener('mouseup', () => this.onDrop(element));
-        this.$.addEventListener('mousemove', this.onDragOver.bind(this));
+        this.onMouseMove = this.onDragOver.bind(this);
+        this.$.addEventListener('mousemove', this.onMouseMove);
         const { clientX, clientY } = event;
         this.copy.setAttribute('style', `left: ${clientX}; top: ${clientY};`);
         this.$.appendChild(this.copy);
@@ -24,6 +25,7 @@ export default class MouseEvent {
     }
 
     onDrop(element) {
+        this.$.removeEventListener('mousemove', this.onMouseMove);
         element.classList.remove('selected');
         this.$.removeChild(this.copy);
         this.copy = null;
